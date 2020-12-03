@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7 Segments Digital Clock</title>
+    <link href="./styleSevenSeg.css" rel="stylesheet"  />
+    <script src="./sevenSegJS.js"></script>
+    <!-- Ref: Create by me using CSS-3 Grid, ClipPath and ES6-JS. -->
+</head>
+<body>
+    
+    <div> 
+        <h4 id="messageId" style="color: #ffffff; ">Alert Pop up with Message Counter</h4>
+        <button id="timerStartButton" onclick="CountdownTimer()">Count down</button>
+    </div>
+
+    <div class="sevenSegCon">
+
+        
+
+        <div class="sevenSeg">
+            <div class="box"><div class="segA sec1">a</div></div>
+
+            <div class="box"><div class="segF sec1">f</div></div>
+            <div class="box"></div>
+            <div class="box"><div class="segB sec1">b</div></div>
+
+            <div class="box"><div class="segG sec1">g</div></div>
+
+            <div class="box"><div class="segE sec1">e</div></div>
+            <div class="box"></div>
+            <div class="box"><div class="segC sec1">c</div></div>
+
+            <div class="box"><div class="segD sec1">d</div></div>
+        </div>
+
+        <div class="sevenSeg">
+            <div class="box"><div class="segA sec2">a</div></div>
+
+            <div class="box"><div class="segF sec2">f</div></div>
+            <div class="box"></div>
+            <div class="box"><div class="segB sec2">b</div></div>
+
+            <div class="box"><div class="segG sec2">g</div></div>
+
+            <div class="box"><div class="segE sec2">e</div></div>
+            <div class="box"></div>
+            <div class="box"><div class="segC sec2">c</div></div>
+
+            <div class="box"><div class="segD sec2">d</div></div>
+        </div>
+
+       
+
+    </div>
+
+    
+
+    
+<script>
+    
+    let dotAnimation = true; 
+    let countDown = 60; 
+
+    function CountdownTimer()
+    {
+
+
+    /// Ref: https://www.w3schools.com/js/tryit.asp?filename=tryjs_setinterval3
+
+    let myTimer = setInterval(() => 
+        {
+            let sevSegSec1 = new SevenSegment(".sec1"); 
+            let sevSegSec2 = new SevenSegment(".sec2"); 
+
+
+            let splitDigits = countDown.toString().split(''); 
+
+
+            if (splitDigits.length == 1)
+            {
+                splitDigits.unshift(0); 
+                sevSegSec1.digitZero(); 
+            }// end if -> splitDigits.length
+            
+            
+            console.log (`sec : ${splitDigits[0]}, ${splitDigits[1]}`);
+            
+
+            if (splitDigits[0] === "0")
+            {
+                sevSegSec1.digitZero(); 
+            }
+
+            if (splitDigits[0] === "1")
+            {
+                sevSegSec1.digitOne(); 
+            }
+
+            if (splitDigits[0] === "2")
+            {
+                sevSegSec1.digitTwo(); 
+            }
+
+            if (splitDigits[0] === "3")
+            {
+                sevSegSec1.digitThree(); 
+            }
+
+            if (splitDigits[0] === "4")
+            {
+                sevSegSec1.digitFour(); 
+            }
+
+            if (splitDigits[0] === "5")
+            {
+                sevSegSec1.digitFive(); 
+            }
+
+            if (splitDigits[0] === "6")
+            {
+                sevSegSec1.digitSix(); 
+            }
+
+            if (splitDigits[0] === "7")
+            {
+                sevSegSec1.digitSeven(); 
+            }
+
+            if (splitDigits[0] === "8")
+            {
+                sevSegSec1.digitEight(); 
+            }
+
+            if (splitDigits[0] === "9")
+            {
+                sevSegSec1.digitNine(); 
+            }
+
+
+            
+        // ===========================================
+
+            if (splitDigits[1] === "0")
+            {
+                sevSegSec2.digitZero(); 
+            }
+
+            if (splitDigits[1] === "1")
+            {
+                sevSegSec2.digitOne(); 
+
+            }
+
+            if (splitDigits[1] === "2")
+            {
+                sevSegSec2.digitTwo(); 
+
+            }
+
+            if (splitDigits[1] === "3")
+            {
+                sevSegSec2.digitThree(); 
+            }
+
+            if (splitDigits[1] === "4")
+            {
+                sevSegSec2.digitFour(); 
+
+            }
+
+            if (splitDigits[1] === "5")
+            {
+                sevSegSec2.digitFive(); 
+
+            }
+
+            if (splitDigits[1] === "6")
+            {
+                sevSegSec2.digitSix(); 
+            }
+
+            if (splitDigits[1] === "7")
+            {
+                sevSegSec2.digitSeven(); 
+            }
+
+            if (splitDigits[1] === "8")
+            {
+                sevSegSec2.digitEight(); 
+            }
+
+            if (splitDigits[1] === "9")
+            {
+                sevSegSec2.digitNine(); 
+            }
+
+            // Button must be disabled
+            let buttonId = document.getElementById("timerStartButton"); 
+            let textId = document.getElementById("messageId"); 
+
+            /// Stopping the timer
+            if (countDown == 0)
+            {
+                alert("Timer Done"); 
+
+                clearInterval(myTimer); 
+
+                buttonId.disabled = false; 
+                textId.style.color = "#ffffff"; 
+            }
+            else 
+            {
+                buttonId.disabled = true; 
+                textId.style.color = "#696969"; 
+
+                
+            }
+
+            countDown -= 1; 
+
+           
+
+        }, 1000); 
+
+        
+    }// end CountdownTimer()
+    
+
+
+    
+
+    
+    
+</script>
+
+    
+
+</body>
+</html>
