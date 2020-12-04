@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7 Segments Digital Clock</title>
+    <link href="./styleSevenSeg.css" rel="stylesheet"  />
+    <script src="./sevenSegJS.js"></script>
+    <!-- Ref: Create by me using CSS-3 Grid, ClipPath and ES6-JS. -->
+</head>
+<body>
+    
+    <div> 
+        <div style="color: #ffffff;">
+            <h4>Countdown: </h4><span id="countDownDisplayId"></span>
+        </div>
+        <h4 id="messageId" style="color: #ffffff; ">Alert Pop up with Message Counter</h4>
+        <button id="timerStartButton" onclick="CountdownTimer()">Count down</button>
+    </div>
+
+
+    </div>
+
+    
+
+    
+<script>
+    
+    let dotAnimation = true; 
+    let countDown = 60; 
+    let isShow = true; 
+
+    function CountdownTimer()
+    {
+
+
+    /// Ref: https://www.w3schools.com/js/tryit.asp?filename=tryjs_setinterval3
+
+    let myTimer = setInterval(() => 
+        {
+            /// Add your message
+            
+
+            // Button must be disabled
+            let buttonId = document.getElementById("timerStartButton"); 
+            let countDownDisplayId = document.getElementById("countDownDisplayId"); 
+            let textId = document.getElementById("messageId"); 
+
+            /// Stopping the timer
+            if (countDown == 0)
+            {
+                alert("Timer Done"); 
+
+                clearInterval(myTimer); 
+
+                buttonId.disabled = false; 
+                textId.style.color = "#ffffff"; 
+
+                isShow = true; 
+
+            }
+            else 
+            {
+                buttonId.disabled = true; 
+                textId.style.color = "#696969"; 
+
+                
+            }
+
+            /// Display minutes left over
+            // alert(`Your Countdown Start:  ${countDown} `); 
+            countDownDisplayId.innerHTML = `${countDown}`; 
+
+            countDown -= 1; 
+
+           
+
+        }, 1000); 
+
+        
+    }// end CountdownTimer()
+    
+
+
+    
+
+    
+    
+</script>
+
+    
+
+</body>
+</html>
