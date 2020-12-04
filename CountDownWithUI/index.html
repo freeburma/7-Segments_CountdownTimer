@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>7 Segments Digital Clock</title>
     <link href="./styleSevenSeg.css" rel="stylesheet"  />
-    <script src="./sevenSegJS.js"></script>
     <!-- Ref: Create by me using CSS-3 Grid, ClipPath and ES6-JS. -->
 </head>
 <body>
@@ -201,8 +200,10 @@
             let buttonId = document.getElementById("timerStartButton"); 
             let textId = document.getElementById("messageId"); 
 
+            countDown -= 1; 
+
             /// Stopping the timer
-            if (countDown == 0)
+            if (countDown <= 0)
             {
                 alert("Timer Done"); 
 
@@ -222,7 +223,6 @@
                 
             }
 
-            countDown -= 1; 
 
            
 
